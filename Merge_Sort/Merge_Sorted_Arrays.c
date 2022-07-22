@@ -26,6 +26,20 @@ void merge(int arr[] , int left , int mid , int right )
 		
 	}
 
+	printf("The two subarrays are\n"  );
+	for (int i=0; i<size_of_left_arr;i++)
+	{
+		printf("%d\n" , left_arr[i]);
+	}
+	printf("\n" );
+
+	for (int i=0; i<size_of_right_arr;i++)
+	{
+		printf("%d\n" , right_arr[i]);
+	}
+
+
+
 
 	//write the sort path 
 
@@ -39,8 +53,9 @@ void merge(int arr[] , int left , int mid , int right )
 	// counter to write to the main array
 	int counter = left;
 
-	while(i<size_of_right_arr && j<size_of_right_arr)
+	while(i<size_of_left_arr && j<size_of_right_arr)
 	{
+		
 		if (left_arr[i] < right_arr[j])
 		{
 			arr[counter]=left_arr[i];
@@ -63,12 +78,14 @@ void merge(int arr[] , int left , int mid , int right )
 	while(i<size_of_left_arr)
 	{
 		arr[counter] = left_arr[i];
+		counter++;
 		i++;
 	}
 
 	while(j<size_of_right_arr)
 	{
 		arr[counter] = right_arr[j];
+		counter++;
 		j++;
 	}
 
@@ -82,19 +99,28 @@ int main()
 
 	// sort a select  elements by dividing it into two equal halves.
 
-	int arr[] = { 3 , 4 ,  5 , 6 ,12 , 25 , 8 ,13 , 89 , 90  ,99, 56 , 24};
-	int len =13;
+	// int arr[] = { 3 , 4 ,  5 , 6 ,12 , 25 , 8 ,13 , 89 , 90  ,99, 56 , 24};
+	// int len =13;
+
+
+	int arr[] = {2 , 1};
+
+
 
 	// // a certain sect is sorted into two equal halves divide it
 	// 5 ,6 , 12 , 25
 	// 8 , 13 , 89 , 90
 	
-	merge(arr , 2 , 5 , 9  );
+	// merge(arr , 2 , 5 , 9  );
 	// merge(array , left , mid , right)
 
 	//print the array
 
-	for (int i=0; i<len; i++)
+	merge(arr , 0 , 0 , 1);
+
+
+
+	for (int i=0; i<2; i++)
 	{
 		printf("%d\t", arr[i] );
 	}
